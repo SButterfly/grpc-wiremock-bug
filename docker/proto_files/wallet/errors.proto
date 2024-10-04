@@ -1,0 +1,6 @@
+syntax = "proto3";
+package wallet.errors;
+
+message OtherError {
+  string reason = 1;
+}

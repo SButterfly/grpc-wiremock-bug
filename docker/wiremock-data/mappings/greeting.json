@@ -1,0 +1,15 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPath": "/wallet.myservice.MyService/QueryEvents"
+    },
+
+    "response": {
+        "status": 200,
+        "body": "{\"from\": 0, \"to\": 0}",
+        "transformers": ["response-template"],
+        "headers" : {
+            "grpc-status-name" : "OK"
+        }
+    }
+}

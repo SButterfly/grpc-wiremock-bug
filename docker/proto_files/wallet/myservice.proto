@@ -1,0 +1,37 @@
+syntax = "proto3";
+package wallet.myservice;
+
+import "wallet/errors.proto";
+
+service MyService {
+  rpc QueryEvents(QueryEventsRequest) returns (QueryEventsResponse) {}
+}
+
+message LogTruncated {}
+
+message Error {
+  oneof error {
+    errors.OtherError other_error = 1;
+    LogTruncated log_truncated = 2;
+  }
+}
+
+message QueryEventsRequest {
+  uint64 from = 1;
+  uint64 to = 2;
+}
+
+message QueryEventsResponse {
+  Error error = 1;
+
+  uint64 from = 2;
+  uint64 to = 3;
+
+  repeated Event event = 4;
+}
+message Event {
+  EventPayload payload = 2;
+}
+
+message EventPayload {
+}
